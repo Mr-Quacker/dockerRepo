@@ -17,6 +17,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 WORKDIR /var/www/html
 COPY ./src/composer.json ./src/composer.lock* ./
 RUN composer install --no-scripts --no-autoloader --ansi --no-interaction
+RUN php artisan key:generate
 
 # RUN docker-php-ext-install mbstring
 # RUN apt-get update && apt-get install php-xml zip unzip curl mailutils
