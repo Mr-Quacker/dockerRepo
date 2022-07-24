@@ -14,6 +14,10 @@ RUN docker-php-ext-configure gd
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+WORKDIR /var/www/html
+COPY ./src/composer.json ./src/composer.lock* ./
+RUN composer install --no-scripts --no-autoloader --ansi --no-interaction
+
 # RUN docker-php-ext-install mbstring
 # RUN apt-get update && apt-get install php-xml zip unzip curl mailutils
 # RUN chown -R www-data:www-data *
