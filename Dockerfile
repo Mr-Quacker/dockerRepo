@@ -16,7 +16,6 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 WORKDIR /var/www/html
 COPY ./src/composer.json ./src/composer.lock* ./
-RUN composer install
 #RUN curl -L 'https://raw.githubusercontent.com/laravel/laravel/v4.2.11/artisan' > artisan
 #RUN php artisan key:generate
 
