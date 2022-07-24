@@ -18,6 +18,15 @@ services:
     networks:
       - laravel
 
+  composer:
+    image: composer:latest
+    container_name: composer
+    volumes:
+      - ./src:/var/www/html
+    working_dir: /var/www/html
+    networks:
+      - laravel
+
   mysql:
     image: mysql:5.7.22
     container_name: mysql
