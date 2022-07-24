@@ -1,12 +1,9 @@
-git clone https://github.com/mr-quacker/dockerRepo.git
-cd dockerRepo
-mkdir src
+#git clone https://github.com/mr-quacker/dockerRepo.git
+#cd dockerRepo
+git clone https://github.com/mr-quacker/xmRepo.git src
 cd src
-git clone https://github.com/mr-quacker/xmRepo.git
-cd xmRepo
-mv * ..
-cd ..
 mv env .env
-rm -rf xmRepo
 cd ..
 docker-compose up -d --build
+docker exec php compose install
+docker exec php php artisnan key:generate
